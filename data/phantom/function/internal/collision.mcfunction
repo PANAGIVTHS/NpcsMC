@@ -1,9 +1,10 @@
-# 1. Check for ENABLE Condition (PvP ON + Target Nearby)
-# If ANY driver matches this, we enable collision and exit the function immediately.
-# We check for targets within 8 blocks (Melee/Mid range).
-execute as @e[tag=phantom_driver,scores={phantom.pvp_mode=1}] at @s if entity @e[tag=phantom_target,distance=..32] run return run team modify phantom_clones collisionRule always
+# 1. ATTACK STATE (3): Enable Collision if near enemy
+execute as @e[tag=phantom_driver,scores={phantom.state=3}] at @s if entity @e[tag=phantom_target,distance=..8] run return run team modify phantom_clones collisionRule always
 
-# 2. Default State (Disable Collision)
-# If the function didn't return above, it means NO driver met the condition.
-# So we safely disable collision.
+# 2. PATHFIND STATE (2): Substates 1 & 2
+# Sprinting (1) or Chasing (2) enables collision.
+execute as @e[tag=phantom_driver,scores={phantom.state=2}] if score @s phantom.substate matches 1..2 run return run team modify phantom_clones collisionRule always
+
+# 3. DEFAULT: Disable Collision
+# Idle (0), Freeroam (1), or Walk (Substate 0)
 team modify phantom_clones collisionRule never

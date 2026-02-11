@@ -1,11 +1,11 @@
-# 1. Sync Logic (Run this first!)
+# 1. Sync Logic (Visuals)
 execute as @e[tag=phantom_clone] run function phantom:internal/sync
 
-# 2. Driver Logic (Jump/PvP)
-execute as @e[tag=phantom_driver] run function phantom:internal/combat
+# 2. MAIN BRAIN (State Machine)
+execute as @e[tag=phantom_driver] run function phantom:internal/logic
 
-# 3. Effects (Particles/Animations)
+# 3. Effects
 execute as @e[tag=phantom_driver] run function phantom:internal/fx
 
-# 4. Global Collision Logic (Dynamic Team Rules)
+# 4. Collision Logic
 function phantom:internal/collision

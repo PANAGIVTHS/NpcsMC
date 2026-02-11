@@ -1,12 +1,12 @@
-# 1. Generate Unique ID
+# 1. Generate ID
 scoreboard players add #global phantom.uid_global 1
 scoreboard players operation @s phantom.id = #global phantom.uid_global
-
-# 2. Store ID in a temp variable so the Clone can grab it
 scoreboard players operation #temp phantom.id = @s phantom.id
 
-# 3. Default Settings
-scoreboard players set @s phantom.pvp_mode 0
+# 2. Default State (Freeroam)
+scoreboard players set @s phantom.state 1
+scoreboard players set @s phantom.substate 0
+scoreboard players set @s phantom.jump_cd 0
 
-# 4. Summon the Clone (Now that ID is safe in #temp)
+# 3. Summon Clone
 $function phantom:api/_summon_clone {profile:"$(profile)"}

@@ -1,14 +1,12 @@
-# 1. Mark 'Me' (The Clone)
 tag @s add phantom_syncing
 
-# 2. Base Sync (Position & Rotation)
-# This moves the clone to the driver. 
-# It COPIES THE ROTATION of the driver automatically (Default behavior).
+# 1. Base Sync (Copies Driver Rotation)
 execute as @e[tag=phantom_driver] if score @s phantom.id = @e[tag=phantom_syncing,limit=1] phantom.id run tp @e[tag=phantom_syncing,limit=1] @s
 
-# 3. Targeting Override (Only if PvP is ON)
-# We check: ID Matches + PvP Mode is 1 + Target exists
-execute as @e[tag=phantom_driver] if score @s phantom.id = @e[tag=phantom_syncing,limit=1] phantom.id if score @s phantom.pvp_mode matches 1 at @e[tag=phantom_syncing,limit=1] if entity @e[tag=phantom_target,distance=..24] facing entity @e[tag=phantom_target,limit=1,sort=nearest] feet run tp @e[tag=phantom_syncing,limit=1] ~ ~ ~ ~ ~
+# 2. STATE 3 (Attack): Look at Attack Target (phantom_target)
+execute as @e[tag=phantom_driver] if score @s phantom.id = @e[tag=phantom_syncing,limit=1] phantom.id if score @s phantom.state matches 3 at @e[tag=phantom_syncing,limit=1] if entity @e[tag=phantom_target,distance=..24] facing entity @e[tag=phantom_target,limit=1,sort=nearest] feet run tp @e[tag=phantom_syncing,limit=1] ~ ~ ~ ~ ~
 
-# 4. Cleanup
+# 3. STATE 2 (Pathfind): Look at Pathfind Target (phantom_path_target)
+execute as @e[tag=phantom_driver] if score @s phantom.id = @e[tag=phantom_syncing,limit=1] phantom.id if score @s phantom.state matches 2 at @e[tag=phantom_syncing,limit=1] if entity @e[tag=phantom_path_target,distance=..24] facing entity @e[tag=phantom_path_target,limit=1,sort=nearest] feet run tp @e[tag=phantom_syncing,limit=1] ~ ~ ~ ~ ~
+
 tag @s remove phantom_syncing
