@@ -1,5 +1,5 @@
 # Macro context: {id:<int>}
-
+$tellraw @a {"text":"[Task Debug] on_reach: kill_repeat | ID: $(id)","color":"blue"}
 # Kill the target if exists
 $kill @e[tag=target_$(id),distance=..3,limit=1,sort=nearest]
 

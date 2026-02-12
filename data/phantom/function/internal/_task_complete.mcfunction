@@ -1,11 +1,12 @@
 # Macro Context: {id:<int>}
+$tellraw @a[tag=debug] {"text":"[Task Debug] Task Complete | ID: $(id)","color":"green"}
 
-# 1️⃣ Run on_reach
+# Run on_reach
 $function $(on_reach) {id:$(id)}
 
-# 2️⃣ Cleanup tags
+# Cleanup tags
 $tag @e[tag=target_$(id)] remove target_$(id)
 $tag @e[tag=reached_$(id)] remove reached_$(id)
 
-# 3️⃣ Chain to next task (if exists)
+# Chain to next task (if exists)
 $function phantom:internal/_task_chain {id:$(id)}

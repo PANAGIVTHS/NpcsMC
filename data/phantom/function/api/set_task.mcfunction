@@ -1,4 +1,5 @@
 # Macro Context: {task:<string>, id:<int>} OR {task:<string>} (id optional inside task)
+$tellraw @a[tag=debug] {"text":"[Task Debug] API: set_task | Task: $(task) | ID: $(id)","color":"yellow"}
 
 # Remove old task for this ID if id exists in task
 $execute if data storage phantom:macro_io id run data remove storage phantom:tasks entries[{id:$(id)}]

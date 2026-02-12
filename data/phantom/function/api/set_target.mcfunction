@@ -8,3 +8,4 @@ execute store result storage phantom:macro_io id int 1 run scoreboard players ge
 
 # 3. Call the internal macro to apply the tag
 function phantom:internal/set_target_apply with storage phantom:macro_io
+# TODO

@@ -1,4 +1,5 @@
 # Macro Context: {id:<int>}
+$tellraw @a[tag=debug] {"text":"[Task Debug] Checking for Task Chain | ID: $(id)","color":"yellow"}
 
 # Stop if no chain exists
 execute unless data storage phantom:macro_io current_task.chain run return 0
