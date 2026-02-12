@@ -9,4 +9,4 @@ scoreboard players set @s phantom.substate 0
 scoreboard players set @s phantom.jump_cd 0
 
 # 3. Summon Clone
-$function phantom:api/_summon_clone {profile:"$(profile)"}
+$function phantom:internal/_summon_clone {profile:"$(profile)"}

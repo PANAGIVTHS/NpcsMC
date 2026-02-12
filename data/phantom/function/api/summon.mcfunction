@@ -5,7 +5,7 @@ $summon zombified_piglin ~ ~ ~ {HasVisualFire:0b,Silent:1b,Invulnerable:1b,Glowi
 team join phantom_clones @e[tag=phantom_new_driver]
 
 # 3. Initialize Logic (Pass the profile down)
-$execute as @e[tag=phantom_new_driver,limit=1] run function phantom:api/_init_driver {profile:"$(profile)"}
+$execute as @e[tag=phantom_new_driver,limit=1] run function phantom:internal/_init_driver {profile:"$(profile)"}
 
 # 4. Clean up Driver Tag
 tag @e[tag=phantom_new_driver] remove phantom_new_driver

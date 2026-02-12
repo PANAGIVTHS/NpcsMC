@@ -1,10 +1,10 @@
-# 1. Clear old targets
-tag @e[tag=phantom_target] remove phantom_target
+# Usage: execute as <driver> run function phantom:api/set_target {selector:"@p"}
 
-# 2. Apply new target tag (Macro)
-$execute at @e[tag=phantom_clone] run tag $(selector) add phantom_target
+# 1. Store the selector in storage (pass-through)
+$data modify storage phantom:macro_io selector set value "$(selector)"
 
-# 3. SAFETY: Remove tag from Drivers and Clones immediately
-# This ensures even if you use "@e", the system won't target itself.
-tag @e[tag=phantom_driver] remove phantom_target
-tag @e[tag=phantom_clone] remove phantom_target
+# 2. Store the NPC's ID in storage
+execute store result storage phantom:macro_io id int 1 run scoreboard players get @s phantom.id
+
+# 3. Call the internal macro to apply the tag
+function phantom:internal/set_target_apply with storage phantom:macro_io
