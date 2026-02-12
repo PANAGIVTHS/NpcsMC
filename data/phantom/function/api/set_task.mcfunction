@@ -1,16 +1,14 @@
-# Macro Context: {id: <int>, cmd: <string>}
+# Macro Context: {task:<string>, id:<int>} OR {task:<string>} (id optional inside task)
 
-# 1. Clean up old entry for this ID
-$data remove storage phantom:tasks entries[{id:$(id)}]
+# Remove old task for this ID if id exists in task
+$execute if data storage phantom:macro_io id run data remove storage phantom:tasks entries[{id:$(id)}]
 
-# 2. FORCE ID TO INTEGER (Type Sanitization)
-# We read the input ID and write it back as 'int 1'. 
-# This converts 40d, 40L, "40" -> 40 (Integer)
-execute store result storage phantom:macro_io input.id int 1 run data get storage phantom:macro_io input.id
+# Copy the task from storage
+# Load the task object from the specified function file into macro_io
+$function $(task) with storage phantom:macro_io
 
-# 3. Add the new entry
-# Now we append the sanitized input
-data modify storage phantom:tasks entries append from storage phantom:macro_io input
+# Append to tasks
+data modify storage phantom:tasks entries append from storage phantom:macro_io
 
-# 4. Debug Message
-#$tellraw @a {"text":"[Task] Set task to '$(cmd)' for ID $(id)","color":"gray"}
+# Set NPC to task state
+$execute if data storage phantom:macro_io input.id run execute as @e[scores={phantom.id=$(id)}] run scoreboard players set @s phantom.state 2
