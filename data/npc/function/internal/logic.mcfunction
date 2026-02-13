@@ -5,7 +5,7 @@ scoreboard players remove @s[scores={npc.jump_cd=1..}] npc.jump_cd 1
 # 2. STATE MACHINE
 
 # STATE 0: IDLE
-$execute if score @s npc.state matches 0 run attribute @s minecraft:movement_speed base set $(base_speed)
+execute if score @s npc.state matches 0 run attribute @s minecraft:movement_speed base set 0
 execute if score @s npc.state matches 0 run data merge entity @s {anger_end_time:0,angry_at:[I;0,0,0,0]}
 
 # STATE 1: FREEROAM

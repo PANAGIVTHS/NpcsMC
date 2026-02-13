@@ -7,4 +7,4 @@ $data modify storage npc:registry NPC$(id).task set value "$(task)"
 
 # Copy the task from storage
 # Load the task object from the specified function file into registry
-$execute as @e[tag=npc_driver,scores={npc.id=$(id)}] function $(task) {id:$(id), task:"$(task)"}
+$execute as @e[tag=npc_driver,scores={npc.id=$(id)}] run function $(task) {id:$(id), task:"$(task)"}
