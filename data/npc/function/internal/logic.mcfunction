@@ -19,4 +19,4 @@ $execute if score @s npc.state matches 2 run function npc:internal/task {id:$(id
 
 # STATE 3: ATTACK (PvP Mode)
 # IMPORTANT: Pass the ID to the combat macro
-$execute if score @s npc.state matches 3 run function npc:internal/combat with storage NPC$(id)
+$execute if score @s npc.state matches 3 run function npc:internal/combat with storage npc:registry NPC$(id)

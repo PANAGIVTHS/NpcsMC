@@ -6,4 +6,4 @@ $tellraw @a[tag=debug] {"text":"[Task Debug] Dispatching Task Chain | ID: $(id)"
 $execute unless data storage npc:registry NPC$(id).task_info.chain run return 0
 
 # Call set_task with storage
-$function npc:api/set_task with storage NPC$(id).task_info
+$function npc:api/set_task with storage npc:registry NPC$(id).task_info
