@@ -10,7 +10,7 @@ execute if score @s npc.state matches 0 run data merge entity @s {anger_end_time
 
 # STATE 1: FREEROAM
 $execute if score @s npc.state matches 1 run attribute @s minecraft:movement_speed base set $(base_speed)
-execute if score @s npc.state matches 1 run data merge entity @s {anger_end_time:0,angry_at:[I;0,0,0,0]}
+execute if score @s npc.state matches 1 run data merge entity @s {anger_end_time:-1L,angry_at:[I;0,2,0,0]}
 
 # STATE 2: TASK SYSTEM
 # We pass the ID to the runner so it knows which task to fetch.

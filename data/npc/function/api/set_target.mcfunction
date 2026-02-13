@@ -11,4 +11,4 @@ $data modify storage npc:registry NPC$(id).id set value $(id)
 $execute as @e[tag=npc_driver,scores={npc.id=$(id)}] run function npc:internal/set_target_apply with storage npc:registry NPC$(id)
 
 # 4. Reset piglin agro
-$data modify entity @e[tag=npc_driver,scores={npc.id=$(id)},limit=1] angry_at set value [I;0,0,0,0]
+$data remove entity @e[tag=npc_driver,scores={npc.id=$(id)},limit=1] angry_at set value [I;0,0,0,0]

@@ -6,7 +6,7 @@ team join npc_clones @e[tag=npc_new_clone]
 
 # 3. Link ID
 # We copy from #temp, which we set in the previous function.
-execute as @e[tag=npc_new_clone,limit=1] run scoreboard players operation @s npc.id = #temp npc.id
+execute as @e[tag=npc_new_clone,limit=1] run scoreboard players operation @s npc.id = #global npc.uid_global
 
 # 4. Print the ID to chat (New Step)
 # This targets the entity with the tag and displays its score for 'npc.id'
