@@ -15,7 +15,7 @@ execute if score @s npc.state matches 1 run data merge entity @s {anger_end_time
 
 # STATE 2: TASK SYSTEM
 # We pass the ID to the runner so it knows which task to fetch.
-$execute if score @s npc.state matches 2 run attribute @s minecraft:movement_speed base set $(base_speed)
+execute if score @s npc.state matches 2 run attribute @s minecraft:movement_speed base set 0.3
 $execute if score @s npc.state matches 2 run function npc:internal/task {id:$(id)}
 # STATE 3: ATTACK (PvP Mode)
 # IMPORTANT: Pass the ID to the combat macro

@@ -13,7 +13,7 @@ $execute at @s run data modify entity @s angry_at set from entity @e[tag=target_
 $execute at @s if entity @e[tag=target_$(id),distance=..32] run data merge entity @s {anger_end_time:9999}
 
 #TODO maybe these should be variables
-$execute at @s if score @s npc.state matches 3 run execute if entity @e[tag=target_$(id),distance=4..32] run attribute @s minecraft:movement_speed base set 0.38
+$execute at @s if score @s npc.state matches 3 run execute if entity @e[tag=target_$(id),distance=4..32] run attribute @s minecraft:movement_speed base set 0.3
 
 # 4. JUMP LOGIC
 tag @s remove npc_jumping
