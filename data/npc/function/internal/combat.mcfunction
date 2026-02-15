@@ -2,6 +2,7 @@
 #TODO maybe make into a task
 # 1. RESTORE REACH
 #data modify entity @s HandItems[0].components."minecraft:attack_range" set value {min_reach:0.0,max_reach:4.0,hitbox_margin:1.0}
+tellraw @a[tag=debug] {"text":"combat","color":"yellow"}
 
 # 2. RESTORE SPEED
 $attribute @s minecraft:movement_speed base set $(base_speed)

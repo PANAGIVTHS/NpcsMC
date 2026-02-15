@@ -1,4 +1,5 @@
 # Macro Context: {id:<int>, profile:"...", speed:<float>, reach:<float>}
+tellraw @a[tag=debug] {"text":"reg_init","color":"yellow"}
 
 # Create base registry entry
 $data modify storage npc:registry NPC$(id).id set value $(id)

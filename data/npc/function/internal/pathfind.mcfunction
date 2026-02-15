@@ -11,7 +11,6 @@ $execute if data storage npc:registry NPC$(id).task_info{type:"sprint"} run scor
 $execute if data storage npc:registry NPC$(id).task_info{type:"jump_sprint"} run scoreboard players set @s npc.substate 2
 
 # Run pathfind
-$execute as @s function npc:internal/_pathfind_basic {id:$(id)}
-
+$execute as @s run function npc:internal/_pathfind_basic {id:$(id)}
 # Check completion
-$execute if entity @e[tag=reached_$(id)] run execute as @s function npc:internal/_task_complete {id:$(id)}
+$execute as @s if entity @e[tag=reached_$(id)] run execute as @s run function npc:internal/_task_complete with storage npc:registry NPC$(id).task_info

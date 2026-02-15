@@ -2,6 +2,7 @@
 # Macro context: {id: <int>, selector: "<string>"}
 
 # 1. Clear old targets for THIS specific ID
+tellraw @a[tag=debug] {"text":"set_target_apply","color":"yellow"}
 $tag @e[tag=target_$(id)] remove target_$(id)
 
 # 2. Apply new target tag using the ID

@@ -1,4 +1,5 @@
 #! DONE
+tellraw @a[tag=debug] {"text":"init_driver","color":"yellow"}
 
 # 1. Generate ID
 scoreboard players add #global npc.uid_global 1
